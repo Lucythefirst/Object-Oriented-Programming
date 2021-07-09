@@ -1,0 +1,44 @@
+class Pets():
+    animals = []
+    def __init__(self, animals):
+        self.animals = animals
+
+    def walk(self):
+        for animal in self.animals:
+            print(animal.walk())
+    def sing(self):
+        for animal in self.animals:
+            print(animal.sing())
+
+class Cat(Pets):
+    is_lazy = True
+
+    def __init__(self, name, age, speech):
+        self.name = name
+        self.age = age
+        self.speech = speech
+    def walk(self):
+        return f'{self.name} is just walking around'
+    def sing(self):
+        return f'{self.speech}'
+
+class Cat1(Cat):
+    def sing(self):
+        return f'{self.name} says {self.speech}'
+
+class Cat2(Cat):
+    def sing(self):
+        return f'{self.speech} - {self.name}'
+
+class Cat3(Cat):
+    def sing(self):
+        return f'{self.name}\'s contribution is: {self.speech}'
+
+my_cats = [Cat1('Mocha',3,'prr'),Cat2('Shadow',4,'meow'), Cat3('Biscuit',2,'mew')]
+
+my_pets = Pets(my_cats)
+
+my_pets.walk()
+my_pets.sing()
+
+
