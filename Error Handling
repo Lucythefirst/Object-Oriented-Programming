@@ -1,0 +1,39 @@
+while True: 
+    try:
+        age = int(input("Enter your age: "))
+        age_in_dog_years = 10/age
+        
+    except ZeroDivisionError: # if try gave an error and this was the error, run this:
+        print("Enter an age greater than 0")
+        continue
+        
+    except ValueError:
+        print("Please enter a number.")
+        
+    
+    except ValueError:
+        print("!!!!") #doesn't get run
+        
+    else:
+        print(f"Thank you. Your age is {age}")
+        break # stops the code running again, now there is no error
+        
+    finally:
+        print("I will always get printed no matter what :)") # prints after all of above has run
+    
+    
+
+
+
+
+def division_fn(num1, num2):
+    try: 
+        return num1/num2
+    except (ZeroDivisionError, TypeError) as err:
+        print(f'Oops there was an error: {err}')
+
+
+
+print(division_fn(1,'0'))
+print(division_fn(1,0))
+print(division_fn(1,4))
