@@ -1,0 +1,43 @@
+# Performance Decorator: See how fast your code runs:
+
+from time import time
+
+def performance(fn):
+  def wrapper(*args, **kwargs):
+    t1 = time()
+    result = fn(*args, **kwargs)
+    t2 = time()
+    print(f'{fn.__name__} took {t2-t1} s to run')
+    return result
+  return wrapper
+
+@performance
+def long_time():
+    for i in range(100000):
+        i*5
+
+long_time()
+
+
+# Decorators: Authentication 
+
+# Create an @authenticated decorator that only allows the function to run if user1 has 'valid' set to True:
+
+user1 = {
+    'name': 'Lucy',
+    'valid': True #changing this will either run or not run the message_friends function.
+}
+
+def authenticated(fn):
+  def wrapper(*args,**kwargs):
+    if args[0]['valid']:
+      return fn (*args,**kwargs)
+  return wrapper
+
+
+@authenticated
+def message_friends(user):
+    print('Message has been sent.')
+
+message_friends(user1)
+
