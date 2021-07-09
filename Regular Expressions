@@ -1,0 +1,18 @@
+# Email and Password Checker: Checking the formats are valid:
+
+import re
+#check if the email given is in a valid format
+pattern = re.compile(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
+email = 'Lucy@b.com'
+a = pattern.search(email) #compare the possible valid formats
+print(a)
+
+#password must be at least 8 characters long
+#any letters of any case
+#any numbers
+#can include the following characters: @#$%!
+
+pattern2 = re.compile(r"(^[a-zA-Z0-9@#$%]{8,})")
+password = 'a2345678'
+b = pattern2.fullmatch(password)
+print(b)
